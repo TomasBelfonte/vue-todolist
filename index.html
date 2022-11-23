@@ -22,11 +22,16 @@
                 <div class="col-sm-6">
 
                     <!-- qui si aggiungono le cose da fare -->
-                    <form>
+                    <form @submit.prevent="onAddClick">
                         <div class="input-group">
-                            <!-- <span class="input-group-text">aggiungi</span> -->
-                            <input type="text" aria-label="Oggetto" class="form-control" placeholder="inserisci oggetto" >
-                            <input type="text" aria-label="Categoria" class="form-control" placeholder="inserisci categoria" >
+
+                            <!-- <qui l'utente aggiunge oggeto e categoria delle cose da fare con bottone "Aggiungi"-->
+                            <input type="text" aria-label="Oggetto" class="form-control" placeholder="inserisci oggetto" 
+                            v-model="newToDoList.text">
+                            
+                            <input type="text" aria-label="Categoria" class="form-control" placeholder="inserisci categoria" 
+                            v-model="newToDoList.cat">
+
                             <button class="btn btn-primary btn-aggiungi" >Aggiungi</button>
                         </div>
                     </form>
@@ -49,11 +54,15 @@
                     <!-- dettaglio delle cose da fare -->
                     <div class="card">
                         <div class="to-do list-group list-group-flush">
-                            <div class="list-group-item d-flex align-items-center overflow-hidden" v-for="task in toDoList">
 
+                            <!-- lista delle cose da fare -->
+                            <div class="list-group-item d-flex align-items-center overflow-hidden" v-for="(task, i) in toDoList">
+
+                                <!-- form con label e checked delle cose da fare con badge della classe incluso -->
                                 <label class="form-check form-switch flex-fill">
-                                    <input class="form-check-input" type="checkbox"> {{ toDoList.text }}
-                                    <span class="badge bg-primary ">Categoria</span>
+                                    <input class="form-check-input" type="checkbox" v-model="task.done"> {{ task.text }}
+                                    <!-- <div class="">{{task.created.toLocaleStrig()}}</div> -->
+                                    <span class="badge bg-primary ">{{ task.cat }}</span>
                                 </label>
 
                                 <button class="btn btn-danger btn-cancella" >Cancella</button>

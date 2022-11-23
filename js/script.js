@@ -7,32 +7,58 @@ const app = createApp ({
                 {
                     text: "Testo cose da fare",
                     done: false,
-                    category:"Casa"
+                    cat:"Casa",
+                    created: new Date("2022-11-23"),
+                    completed: "null"
                 },
                 {
                     text: "Testo cose da fare",
                     done: false,
-                    category:"Lavoro"
+                    cat:"Lavoro",
+                    created: new Date("2022-11-23"),
+                    completed: ""
                 },
                 {
                     text: "Testo cose da fare",
                     done: false,
-                    category:"Pagamenti"
+                    cat:"Pagamenti",
+                    created: new Date("2022-11-23"),
+                    completed: ""
                 },
                 {
                     text: "Testo cose da fare",
                     done: false,
-                    category:"Generico"
+                    cat:"Generico",
+                    created: new Date("2022-11-23"),
+                    completed: ""
                 },
                 {
                     text: "Testo cose da fare",
                     done: false,
-                    category:"Hobby"
+                    cat: "Hobby",
+                    created: new Date("2022-11-23"),
+                    completed: ""
                 }
-            ]
+            ],
+            newToDoList: {
+                    text:"",
+                    cat:""
+                }
         }
     },
     methods: {
-        
+
+        // qui vengono aggiunte altre cose da fare
+        onAddClick () {
+            this.toDoList.push({
+                ...this.newToDoList,
+                done: false,
+                created: new Date(),
+                completed: ""
+            }), 
+
+            this.newToDoList.text = "",
+            this.newToDoList.cat= ""
+        },
     }
 }).mount("#app")
