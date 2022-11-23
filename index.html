@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue-Todolist</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+
+        <main class="container ">
+
+            <h2 class="text-primary text-center py-5">Cose da fare</h2>
+
+            <div class="row justify-content-center">
+
+                <div class="col-sm-6">
+
+                    <!-- qui si aggiungono le cose da fare -->
+                    <form>
+                        <div class="input-group">
+                            <!-- <span class="input-group-text">aggiungi</span> -->
+                            <input type="text" aria-label="Oggetto" class="form-control" placeholder="inserisci oggetto" >
+                            <input type="text" aria-label="Categoria" class="form-control" placeholder="inserisci categoria" >
+                            <button class="btn btn-primary btn-aggiungi" >Aggiungi</button>
+                        </div>
+                    </form>
+
+                    <!-- barra riepilogo to do list-->
+                    <ul class="nav justify-content-center">
+                        <li>
+                            <a class="nav-link" href="#">Tutti</a>
+                        </li>
+
+                        <li>
+                            <a class="nav-link" href="#">Da fare</a>
+                        </li>
+
+                        <li>
+                            <a class="nav-link" href="#">Completato</a>
+                        </li>
+                    </ul>
+
+                    <!-- dettaglio delle cose da fare -->
+                    <div class="card">
+                        <div class="to-do list-group list-group-flush">
+                            <div class="list-group-item d-flex align-items-center overflow-hidden" v-for="task in toDoList">
+
+                                <label class="form-check form-switch flex-fill">
+                                    <input class="form-check-input" type="checkbox"> testo oggetto
+                                    <span class="badge bg-primary ">Categoria</span>
+                                </label>
+
+                                <button class="btn btn-danger btn-cancella" >Cancella</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
