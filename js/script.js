@@ -5,36 +5,34 @@ const app = createApp ({
         return {
             toDoList: [
                 {
-                    text: "Testo",
+                    text: "Testo cose da fare",
                     done: false,
                     category:"Casa"
                 },
                 {
-                    text: "Testo",
+                    text: "Testo cose da fare",
                     done: false,
                     category:"Lavoro"
                 },
                 {
-                    text: "Testo",
+                    text: "Testo cose da fare",
                     done: false,
                     category:"Pagamenti"
                 },
                 {
-                    text: "Testo",
+                    text: "Testo cose da fare",
                     done: false,
                     category:"Generico"
                 },
                 {
-                    text: "Testo",
+                    text: "Testo cose da fare",
                     done: false,
                     category:"Hobby"
                 }
             ]
         }
     },
-    {
-        methods: {
-
-        }
+    methods: {
+        
     }
 }).mount("#app")
