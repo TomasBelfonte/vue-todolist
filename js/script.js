@@ -45,7 +45,7 @@ const app = createApp ({
                     cat:""
                 }
         }
-    },
+    }, 
     methods: {
 
         // qui vengono aggiunte altre cose da fare
@@ -56,9 +56,18 @@ const app = createApp ({
                 created: new Date(),
                 completed: ""
             }), 
-
             this.newToDoList.text = "",
             this.newToDoList.cat= ""
         },
+
+        clickDelete (el) {
+            const warning = confirm("Confermi di voler cancellare il dato ?")
+
+            if (warning) {
+                this.toDoList.splice(el, 1)
+            }
+            
+        }
+        
     }
 }).mount("#app")

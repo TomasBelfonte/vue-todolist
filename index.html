@@ -25,12 +25,19 @@
                     <form @submit.prevent="onAddClick">
                         <div class="input-group">
 
-                            <!-- <qui l'utente aggiunge oggeto e categoria delle cose da fare con bottone "Aggiungi"-->
+                            <!-- <qui l'utente aggiunge oggetto e categoria delle cose da fare con bottone "Aggiungi"-->
                             <input type="text" aria-label="Oggetto" class="form-control" placeholder="inserisci oggetto" 
                             v-model="newToDoList.text">
                             
-                            <input type="text" aria-label="Categoria" class="form-control" placeholder="inserisci categoria" 
+                            <input type="text" list="list-categories" aria-label="Categoria" class="form-control" placeholder="inserisci categoria" 
                             v-model="newToDoList.cat">
+                            <datalist id="list-categories">
+                                <option value="Casa"></option>
+                                <option value="Lavoro"></option>
+                                <option value="Pagamenti"></option>
+                                <option value="Generico"></option>
+                                <option value="Hobby"></option>
+                            </datalist>
 
                             <button class="btn btn-primary btn-aggiungi" >Aggiungi</button>
                         </div>
@@ -60,12 +67,14 @@
 
                                 <!-- form con label e checked delle cose da fare con badge della classe incluso -->
                                 <label class="form-check form-switch flex-fill">
-                                    <input class="form-check-input" type="checkbox" v-model="task.done"> {{ task.text }}
+                                    <input class="form-check-input" type="checkbox" v-model="task.done" > 
+                                    <span :class="{ 'text-decoration-line-through': task.done }">  {{ task.text }}  </span>
                                     <!-- <div class="">{{task.created.toLocaleStrig()}}</div> -->
-                                    <span class="badge bg-primary ">{{ task.cat }}</span>
+                                    <span class="badge bg-primary mx-2"> {{ task.cat }} </span>
                                 </label>
 
-                                <button class="btn btn-danger btn-cancella" >Cancella</button>
+                                <!-- bottone elimina oggetto dalla lista-->
+                                <button class="btn btn-danger btn-cancella" @click="clickDelete(i)">Cancella</button>
                             </div>
                         </div>
                     </div>
